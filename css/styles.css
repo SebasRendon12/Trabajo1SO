@@ -1,9 +1,61 @@
-h1 {
+h1, h2 {
   justify-content: center;
   display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
 }
 
 .content {
   justify-content: center;
   display: grid;
+}
+
+.img-lobby {
+  background: url(../assets/Background.jpg);
+  min-height: 100vh;
+  width: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+}
+
+.botones {
+  padding: 0px;
+}
+
+.accion {
+  margin: 3px;
+  min-width: 44px;
+  height: 40px;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+img {
+  height: 184px;
+  width: 184px;
+}
+
+.sec {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation {
+  background-color: #343a40c7;
+  width: 90%;
+  height: auto;
+}
+
+.carta {
+  min-height: 264px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px;
 }
