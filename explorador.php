@@ -18,7 +18,7 @@
     <div class="navigation">
       <br>
       <?php
-      $nomdir = "C:\Users\RENDONARTEAGA\Desktop";
+      $nomdir = "C:\Users";
       echo "<h2>Directorio actual: $nomdir</h2>\n";
       $dir = opendir($nomdir);
       ?>
