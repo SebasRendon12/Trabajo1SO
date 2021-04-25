@@ -1,3 +1,18 @@
+<?php
+
+// Función para el Control de Errores
+function LogDeErrores(
+  $numeroDeError,
+  $descripcion,
+  $fichero,
+  $linea,
+  $contexto
+) {
+  error_log("Error: [" . $numeroDeError . "] " . $descripcion . " " . $fichero . " " . $linea . " " . json_encode($contexto) . " \n\r", 3, "log_errores.txt");
+}
+set_error_handler("LogDeErrores",  E_WARNING | E_NOTICE);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +34,12 @@
       <br>
       <?php
       if (empty($_GET["ruta"])) {
-        $nomdir = $_POST['ruta'] . "\\";
+        $nomdir = $_POST['ruta'] . "/";
       } else {
-        $nomdir = $_GET["ruta"] . "\\";
+        $nomdir = $_GET["ruta"] . "/";
       }
-
+      $nomdir = str_replace("\\\\", "/", $nomdir);
+      $nomdir = str_replace("\\", "/", $nomdir);
       if ($nomdir == "") {
       ?>
         <div class="row" style="justify-content: center;">
@@ -70,10 +86,25 @@
                   ?>
 
                     <!-- Return -->
+                    <?php
+                    $dirAux = explode("/", $nomdir);
+                    $dirPadre = "";
+
+                    // Verifica si ya llegó al raiz
+                    if (count($dirAux) == 1)
+                      $dirPadre = "C:/";
+                    else
+                      // Ciclo para crear el directorio padre
+                      for ($contador = 0; $contador < count($dirAux) - 2; $contador++)
+                        if ($contador < count($dirAux) - 3)
+                          $dirPadre .= $dirAux[$contador] . "/";
+                        else
+                          $dirPadre .= $dirAux[$contador];
+                    ?>
                     <div class="sec">
                       <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
                         <?php
-                        echo '<a href="?ruta=' . urlencode($nomdir . $file) . '" >';
+                        echo '<a href="?ruta=' . urlencode($dirPadre) . '" >';
                         ?>
                         <img src="./assets/back.png" alt="Atras">
                         <?php
