@@ -18,7 +18,12 @@
     <div class="navigation">
       <br>
       <?php
-      $nomdir = $_POST['ruta'] . "/";
+      if (empty($_GET["ruta"])) {
+        $nomdir = $_POST['ruta'] . "\\";
+      } else {
+        $nomdir = $_GET["ruta"] . "\\";
+      }
+
       if ($nomdir == "") {
       ?>
         <div class="row" style="justify-content: center;">
@@ -54,63 +59,121 @@
           while (($file = readdir($dir)) != FALSE) {
             $i++;
           ?>
-            <div class="col-3" style="margin-top: 20px;">
-              <div class="carta" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
-                <div class="sec">
-                  <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
-                    <?php
-                    if (is_dir($nomdir . $file)) {
-                    ?>
-                      <img src="./assets/dir.png" alt="Directorio">
-                    <?php
-                    } else {
-                    ?>
-                      <img src="./assets/file.png" alt="Archivo">
-                    <?php
-                    }
-                    ?>
-                  </div>
-                  <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
-                    <a class="btn btn-info accion" href="#">
-                      <i class="far fa-hand-paper"></i>
-                    </a>
-                    <a class="btn btn-primary accion" href="#">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    <a class="btn btn-danger accion" href="#">
-                      <i class="fas fa-trash-alt"></i>
-                    </a>
-                    <a class="btn btn-light accion" href="#">
-                      <i class="fas fa-info-circle"></i>
-                    </a>
-                  </div>
-                </div>
-                <div style="text-align: center;">
-                  <h3>
-                    <?= $file ?>
-                  </h3>
-                </div>
-                <div class="row sec" style="padding: 0 10px 0 10px;">
-                  <div class="col-7" style="text-align: start;">
-                    <h6>Abril 17 2021</h6>
-                  </div>
-                  <div class="col-5" style="text-align: end;">
-                    <?php
-                    if (is_dir($nomdir . $file)) {
-                    ?>
-                      <h6>-</h6>
-                    <?php
-                    } else {
-                    ?>
-                      <h6 style="font-size: 13px;"><?= (filesize($nomdir . $file) * 0.000001) ?> Mb</h6>
-                    <?php
-                    }
-                    ?>
-                  </div>
+            <?php
+            if ($file != ".") {
+            ?>
+              <div class="col-3" style="margin-top: 20px;">
+                <div style="min-height: 264px; padding: 5px;" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
+
+                  <?php
+                  if ($file == "..") {
+                  ?>
+
+                    <!-- Return -->
+                    <div class="sec">
+                      <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
+                        <?php
+                        echo '<a href="?ruta=' . urlencode($nomdir . $file) . '" >';
+                        ?>
+                        <img src="./assets/back.png" alt="Atras">
+                        <?php
+                        echo '</a>';
+                        ?>
+                      </div>
+                    </div>
+                    <div style="text-align: center;">
+                      <h3>Atrás</h3>
+                    </div>
+                    <!-- Return -->
+
+                    <!-- Directorio -->
+                  <?php
+                  } else if (is_dir($nomdir . $file)) {
+                  ?>
+                    <div class="sec">
+                      <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
+                        <?php
+                        echo '<a href="?ruta=' . urlencode($nomdir . $file) . '" >';
+                        ?>
+                        <img src="./assets/dir.png" alt="Directorio">
+                        <?php
+                        echo '</a>';
+                        ?>
+                      </div>
+                      <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
+                        <a class="btn btn-info accion" href="#">
+                          <i class="far fa-hand-paper"></i>
+                        </a>
+                        <a class="btn btn-primary accion" href="#">
+                          <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="btn btn-danger accion" href="#">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                        <a class="btn btn-light accion" href="#">
+                          <i class="fas fa-info-circle"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div style="text-align: center;">
+                      <h3 style="word-wrap: break-word;"><?= $file ?></h3>
+                    </div>
+                    <div class="row sec" style="padding: 0 10px 0 10px;">
+                      <div class="col-7" style="text-align: start;">
+                        <h6 style="font-size: 13px;"><?= date("d/m/Y g:i a", filemtime($nomdir . $file)) ?></h6>
+                      </div>
+                      <div class="col-5" style="text-align: end;">
+                        <h6>-</h6>
+                      </div>
+                    </div>
+                    <!-- Directorio -->
+
+                  <?php
+                  } else if (!is_dir($nomdir . $file)) {
+                  ?>
+
+                    <!-- File -->
+                    <div class="sec">
+                      <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
+                        <img src="./assets/file.png" alt="Archivo">
+                      </div>
+                      <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
+                        <a class="btn btn-info accion" href="#">
+                          <i class="far fa-hand-paper"></i>
+                        </a>
+                        <a class="btn btn-primary accion" href="#">
+                          <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="btn btn-danger accion" href="#">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                        <a class="btn btn-light accion" href="#">
+                          <i class="fas fa-info-circle"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div style="text-align: center;">
+                      <h3 style="word-wrap: break-word;">
+                        <?= $file ?>
+                      </h3>
+                    </div>
+                    <div class="row sec" style="padding: 0 10px 0 10px;">
+                      <div class="col-7" style="text-align: start;">
+                        <h6 style="font-size: 13px;"><?= date("d/m/Y g:i a", filemtime($nomdir . $file)) ?></h6>
+                      </div>
+                      <div class="col-5" style="text-align: end;">
+                        <h6 style="font-size: 13px;"><?= (filesize($nomdir . $file) * 0.000001) ?> Mb</h6>
+                      </div>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                  <!-- File -->
+
                 </div>
               </div>
-            </div>
           <?php
+            }
           }
           ?>
         </div>
