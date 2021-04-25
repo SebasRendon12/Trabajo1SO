@@ -18,61 +18,91 @@
     <div class="navigation">
       <br>
       <?php
-      $nomdir = "C:\Users";
-      echo "<h2>Directorio actual: $nomdir</h2>\n";
-      $dir = opendir($nomdir);
+      $nomdir = $_POST['ruta'];
+      if ($nomdir == "") {
       ?>
-      <br><br>
-      <div class="col-12 sec">
-        <?php
-        for ($i = 0; $i < 3; $i++) {
-        ?>
-          <div class="col-3">
-            <div class="carta" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
-              <div class="sec">
-                <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
-                  <img src="./assets/file.png" alt="Archivo">
+        <div class="row" style="justify-content: center;">
+          <div style="margin: 65px 20px 0 20px;">
+            <a href="formulario.php">
+              <h3>No seleccionó un directorio raíz</h3>
+            </a>
+          </div>
+        </div>
+      <?php
+      } elseif (!is_dir($nomdir)) {
+      ?>
+        <div class="row" style="justify-content: center;">
+          <div style="margin: 65px 20px 0 20px;">
+            <a href="formulario.php">
+              <h3>Este directorio no existe</h3>
+            </a>
+          </div>
+        </div>
+      <?php
+      } else {
+      ?>
+        <div id="Cabecera">
+          <?php
+          echo "<h2>Directorio actual: $nomdir</h2>\n";
+          $dir = opendir($nomdir);
+          ?>
+        </div>
+        <br><br>
+        <div class="row">
+          <?php
+          $i = 0;
+          while (($file = readdir($dir)) != FALSE) {
+            $i++;
+          ?>
+            <div class="col-3" style="margin-top: 20px;">
+              <div class="carta" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
+                <div class="sec">
+                  <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
+                    <img src="./assets/file.png" alt="Archivo">
+                  </div>
+                  <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
+                    <a class="btn btn-info accion" href="#">
+                      <i class="far fa-hand-paper"></i>
+                    </a>
+                    <a class="btn btn-primary accion" href="#">
+                      <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-danger accion" href="#">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                    <a class="btn btn-light accion" href="#">
+                      <i class="fas fa-info-circle"></i>
+                    </a>
+                  </div>
                 </div>
-                <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
-                  <a class="btn btn-info accion" href="#">
-                    <i class="fas fa-eye"></i>
-                  </a>
-                  <a class="btn btn-primary accion" href="#">
-                    <i class="fas fa-pencil-alt"></i>
-                  </a>
-                  <a class="btn btn-danger accion" href="#">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
-                  <a class="btn btn-light accion" href="#">
-                    <i class="fas fa-info-circle"></i>
-                  </a>
+                <div style="text-align: center;">
+                  <h3>Test</h3>
                 </div>
-              </div>
-              <div style="text-align: center;">
-                <h3>Test</h3>
-              </div>
-              <div class="row sec" style="padding: 0 10px 0 10px;">
-                <div class="col-7" style="text-align: start;">
-                  <h6>Abril 17 2021</h6>
-                </div>
-                <div class="col-5" style="text-align: end;">
-                  <h6>15.64 Mb</h6>
+                <div class="row sec" style="padding: 0 10px 0 10px;">
+                  <div class="col-7" style="text-align: start;">
+                    <h6>Abril 17 2021</h6>
+                  </div>
+                  <div class="col-5" style="text-align: end;">
+                    <h6>15.64 Mb</h6>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        <?php
-        }
-        ?>
-      </div>
-      <br><br><br><br>
-      <div class="row" style="justify-content: center;">
-        <div style="margin: 65px 20px 0 20px;">
-          <a href="index.html">
-            <h3>Volver al Menú Principal</h3>
-          </a>
+          <?php
+          }
+          ?>
         </div>
-      </div>
+        <br><br><br><br>
+        <div class="row" style="justify-content: center;">
+          <div style="margin: 65px 20px 0 20px;">
+            <a href="index.php">
+              <h3>Volver al Menú Principal</h3>
+            </a>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
 </body>
