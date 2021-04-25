@@ -18,7 +18,7 @@
     <div class="navigation">
       <br>
       <?php
-      $nomdir = $_POST['ruta'];
+      $nomdir = $_POST['ruta'] . "/";
       if ($nomdir == "") {
       ?>
         <div class="row" style="justify-content: center;">
@@ -58,7 +58,17 @@
               <div class="carta" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
                 <div class="sec">
                   <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
-                    <img src="./assets/file.png" alt="Archivo">
+                    <?php
+                    if (is_dir($nomdir . $file)) {
+                    ?>
+                      <img src="./assets/dir.png" alt="Directorio">
+                    <?php
+                    } else {
+                    ?>
+                      <img src="./assets/file.png" alt="Archivo">
+                    <?php
+                    }
+                    ?>
                   </div>
                   <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
                     <a class="btn btn-info accion" href="#">
@@ -76,14 +86,26 @@
                   </div>
                 </div>
                 <div style="text-align: center;">
-                  <h3>Test</h3>
+                  <h3>
+                    <?= $file ?>
+                  </h3>
                 </div>
                 <div class="row sec" style="padding: 0 10px 0 10px;">
                   <div class="col-7" style="text-align: start;">
                     <h6>Abril 17 2021</h6>
                   </div>
                   <div class="col-5" style="text-align: end;">
-                    <h6>15.64 Mb</h6>
+                    <?php
+                    if (is_dir($nomdir . $file)) {
+                    ?>
+                      <h6>-</h6>
+                    <?php
+                    } else {
+                    ?>
+                      <h6 style="font-size: 13px;"><?= (filesize($nomdir . $file) * 0.000001) ?> Mb</h6>
+                    <?php
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
