@@ -11,6 +11,9 @@ function LogDeErrores(
   error_log("Error: [" . $numeroDeError . "] " . $descripcion . " " . $fichero . " " . $linea . " " . json_encode($contexto) . " \n\r", 3, "log_errores.txt");
 }
 set_error_handler("LogDeErrores",  E_WARNING | E_NOTICE);
+$arch = fopen("log_errores.txt", "w+");
+fwrite($arch, "");
+fclose($arch);
 ?>
 
 <!DOCTYPE html>
