@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!--Estilos-->
   <link rel="stylesheet" href="css/styles.css">
-  <title>Explorador de archivos Lo'pega</title>
+  <title>Explorador de archivos</title>
 </head>
 
 <body>
   <div class="img-lobby">
     <br><br>
-    <h1>Bienvenidos a Lo'pega</h1>
+    <h1>Equipo</h1>
     <br><br><br>
     <div class="content">
       <table class="table table-dark">
