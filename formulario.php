@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="scripts.js"></script>
   <script src="https://kit.fontawesome.com/b3642d5c24.js" crossorigin="anonymous"></script>
-  <title>Explorador de archivos Lo'pega</title>
+  <title>Explorador de archivos</title>
 </head>
 
 <body>
