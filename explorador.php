@@ -44,6 +44,7 @@ fclose($arch);
       }
       $nomdir = str_replace("\\\\", "/", $nomdir);
       $nomdir = str_replace("\\", "/", $nomdir);
+      $nomdir = str_replace("//", "/", $nomdir);
       if ($nomdir == "") {
       ?>
         <div class="row" style="justify-content: center;">
