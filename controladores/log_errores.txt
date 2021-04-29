@@ -1,2 +1,0 @@
-Error: [2] rmdir(C:/Users/RENDONARTEAGA/Desktop/Backup): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 22  
-

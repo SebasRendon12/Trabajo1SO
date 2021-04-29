@@ -30,6 +30,6 @@ if (is_dir($directorio)) {
     header("Location: ../explorador.php?ruta=$raiz");
   } else {
     echo "<h1>Ocurrio un error</h1>";
-    echo "<h2>$directorio</h2>";
+    echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
   }
 }

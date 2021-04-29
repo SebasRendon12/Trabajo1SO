@@ -73,20 +73,27 @@ fclose($arch);
           $dir = opendir($nomdir);
           ?>
         </div>
-        <br><br>
+        <br>
+        <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+        <form action="controladores/crear.php" id="formCrear" style="display: none;" method="post">
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4">
+              <input style="width: 100%;" type="text" name="nombre">
+            </div>
+            <div class="col-2" style="color: white;">
+              <input type="radio" name="tipo" id="carpeta" value="dir">
+              <label for="carpeta">Carpeta</label>
+              <input type="radio" name="tipo" id="archivo" value="file">
+              <label for="archivo">Archivo</label>
+            </div>
+            <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+            <button class="btn btn-primary" type="submit">Crear</button>
+          </div>
+        </form>
+        <br>
         <div class="row">
           <?php
-
-          function eliminar($directorio)
-          {
-            if (is_dir($directorio)) {
-              // rmdir($directorio);
-            } else if (is_file($directorio)) {
-              // unlink($directorio);
-              echo "$directorio";
-            }
-          }
-
           $i = 0;
           while (($file = readdir($dir)) != FALSE) {
             $i++;
@@ -155,8 +162,8 @@ fclose($arch);
                           <i class="fas fa-pencil-alt"></i>
                         </a>
                         <form action="controladores/eliminar.php" method="post">
-                          <input name="directorio" type="text" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
-                          <input name="raiz" type="text" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <button class="btn btn-danger accion" type="submit">
                             <i class="fas fa-trash-alt"></i>
                           </button>
@@ -196,8 +203,8 @@ fclose($arch);
                           <i class="fas fa-pencil-alt"></i>
                         </a>
                         <form action="controladores/eliminar.php" method="post">
-                          <input name="directorio" type="text" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
-                          <input name="raiz" type="text" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <button class="btn btn-danger accion" type="submit">
                             <i class="fas fa-trash-alt"></i>
                           </button>
