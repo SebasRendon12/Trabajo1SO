@@ -14,6 +14,7 @@ set_error_handler("LogDeErrores",  E_WARNING | E_NOTICE);
 $arch = fopen("log_errores.txt", "w+");
 fwrite($arch, "");
 fclose($arch);
+
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +75,17 @@ fclose($arch);
         <br><br>
         <div class="row">
           <?php
+
+          function eliminar($directorio)
+          {
+            if (is_dir($directorio)) {
+              // rmdir($directorio);
+            } else if (is_file($directorio)) {
+              // unlink($directorio);
+              echo "$directorio";
+            }
+          }
+
           $i = 0;
           while (($file = readdir($dir)) != FALSE) {
             $i++;
@@ -141,9 +153,13 @@ fclose($arch);
                         <a class="btn btn-primary accion" href="#">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <a class="btn btn-danger accion" href="#">
-                          <i class="fas fa-trash-alt"></i>
-                        </a>
+                        <form action="controladores/eliminar.php" method="post">
+                          <input name="directorio" type="text" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <button class="btn btn-danger accion" type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                        </form>
                         <a class="btn btn-light accion" href="#">
                           <i class="fas fa-info-circle"></i>
                         </a>
@@ -178,9 +194,13 @@ fclose($arch);
                         <a class="btn btn-primary accion" href="#">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <a class="btn btn-danger accion" href="#">
-                          <i class="fas fa-trash-alt"></i>
-                        </a>
+                        <form action="controladores/eliminar.php" method="post">
+                          <input name="directorio" type="text" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <button class="btn btn-danger accion" type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                        </form>
                         <a class="btn btn-light accion" href="#">
                           <i class="fas fa-info-circle"></i>
                         </a>
