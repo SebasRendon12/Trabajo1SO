@@ -1,6 +1,4 @@
 <?php
-
-include ("controladores/portapapeles.php");
 // Función para el Control de Errores
 function LogDeErrores(
   $numeroDeError,
@@ -71,20 +69,19 @@ fclose($arch);
         <div id="Cabecera">
           <?php
           echo "<h2>Directorio actual: $nomdir</h2>\n";
-          $test =  CopiarPegar::$raiz . CopiarPegar::$nombre;
-          echo "<h2>Directorio actual: $test</h2>\n";
           $dir = opendir($nomdir);
           ?>
         </div>
         <br>
         <div class="row">
           <?php
-          if (!empty(CopiarPegar::$raiz)) {
+          if (true) {
           ?>
             <form action="controladores/copiar.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
               <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
             </form>
+            <button style="margin-left: 10px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
           <?php
           } else {
           ?>

@@ -1,26 +1,33 @@
 <?php
-include ("portapapeles.php");
 
-function full_copy($source, $target)
+// C:/Users/RENDONARTEAGA/Desktop/carpeta
+// C:/Users/RENDONARTEAGA/Desktop/carpeta/carpeta
+
+function copia($dirOrigen, $dirDestino)
 {
-    if (is_dir($source)) {
-        @mkdir($target);
-        $d = dir($source);
-        while (FALSE !== ($entry = $d->read())) {
-            if ($entry == '.' || $entry == '..') {
-                continue;
-            }
-            $Entry = $source . '/' . $entry;
-            if (is_dir($Entry)) {
-                full_copy($Entry, $target . '/' . $entry);
-                continue;
-            }
-            copy($Entry, $target . '/' . $entry);
-        }
+    //Creo el directorio destino
 
-        $d->close();
-    } else {
-        copy($source, $target);
+    mkdir($dirDestino, 0777, true);
+    //abro el directorio origen
+
+    if ($vcarga = opendir($dirOrigen)) {
+        while ($file = readdir($vcarga)) //lo recorro enterito
+        {
+            if ($file != "." && $file != "..") //quito el raiz y el padre
+            {
+                if (!is_dir($dirOrigen . $file)) //pregunto si no es directorio
+                {
+                    if (copy($dirOrigen . $file, $dirDestino . $file)) //como no es directorio, copio de origen a destino
+                    {
+                    } else {
+                        echo " ERROR!";
+                    }
+                } else {
+                    copia($dirOrigen . $file . "/", $dirDestino . $file . "/");
+                }
+            }
+        }
+        closedir($vcarga);
     }
 }
 
@@ -36,16 +43,50 @@ if (!empty($_POST["nombre"])) {
 
 if (!empty($raiz) && !empty($nombre)) {
     // COPIAR
-    CopiarPegar::setPortapapeles($raiz, $nombre);
+    $ruta_archivo = "../portapapeles.txt";
+
+    if (file_exists($ruta_archivo)) {
+        $archivo = fopen($ruta_archivo, "w");
+        fwrite($archivo, "$raiz \n $nombre");
+        fclose($archivo);
+    }
     header("Location: ../explorador.php?ruta=$raiz");
     // COPIAR
 } else if (!empty($destino)) {
     // PEGAR
-    if (!is_dir($destino . CopiarPegar::getNombre())) {
-        full_copy(CopiarPegar::getDirectorio(), $destino . CopiarPegar::getNombre());
-    } else {
-        echo "<h1>Ya existe</h1>";
-        echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
+    $ruta_archivo = "../portapapeles.txt";
+
+    if (file_exists($ruta_archivo)) {
+        $archivo = fopen($ruta_archivo, "r");
+        $con = 0;
+        do {
+            $con++;
+            if ($con == 1) {
+                $raizO =  trim(fgets($archivo));
+            } else if ($con == 2) {
+                $nombreO = trim(fgets($archivo));
+            }
+        } while (!feof($archivo));
+    }
+    fclose($archivo);
+    echo "<h1>$raizO$nombreO </h1>";
+    echo "<h1>$destino$nombreO</h1>";
+    if (is_dir($raizO . $nombreO)) {
+        if (!is_dir($destino . $nombreO)) {
+            copia($raizO . $nombreO . "/", $destino . $nombreO . "/");
+            header("Location: ../explorador.php?ruta=$destino");
+        } else {
+            echo "<h1>Ya existe</h1>";
+            echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
+        }
+    } else if (is_file($raizO . $nombreO)) {
+        if (!is_file($destino . $nombreO)) {
+            copy($raizO . $nombreO, $destino . $nombreO);
+            header("Location: ../explorador.php?ruta=$destino");
+        } else {
+            echo "<h1>Ya existe</h1>";
+            echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
+        }
     }
     // PEGAR
 }
