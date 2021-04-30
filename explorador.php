@@ -75,6 +75,7 @@ fclose($arch);
         </div>
         <br>
         <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+
         <form action="controladores/crear.php" id="formCrear" style="display: none;" method="post">
           <div class="row">
             <div class="col-1"></div>
@@ -91,6 +92,7 @@ fclose($arch);
             <button class="btn btn-primary" type="submit">Crear</button>
           </div>
         </form>
+
         <br>
         <div class="row">
           <?php
@@ -155,12 +157,23 @@ fclose($arch);
                         ?>
                       </div>
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
-                        <a class="btn btn-info accion" href="#">
+
+                        <form action="controladores/copiar.php" method="post">
+                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <button class="btn btn-info accion" type="submit">
+                            <i class="far fa-hand-paper"></i>
+                          </button>
+                        </form>
+
+                        <!--<a class="btn btn-info accion" href="#">
                           <i class="far fa-hand-paper"></i>
-                        </a>
+                        </a>-->
+
                         <a class="btn btn-primary accion" href="#">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
+
                         <form action="controladores/eliminar.php" method="post">
                           <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
@@ -196,12 +209,23 @@ fclose($arch);
                         <img src="./assets/file.png" alt="Archivo">
                       </div>
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
-                        <a class="btn btn-info accion" href="#">
+
+                        <form action="controladores/copiar.php" method="post">
+                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <button class="btn btn-info accion" type="submit">
+                            <i class="far fa-hand-paper"></i>
+                          </button>
+                        </form>
+
+                        <!--<a class="btn btn-info accion" href="#">
                           <i class="far fa-hand-paper"></i>
-                        </a>
+                        </a> -->
+
                         <a class="btn btn-primary accion" href="#">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
+                        
                         <form action="controladores/eliminar.php" method="post">
                           <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
