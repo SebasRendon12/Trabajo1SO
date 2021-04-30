@@ -10,6 +10,7 @@ if ($tipo == 'dir') {
     $dir = $raiz . "/" . $nombre;
     if (!is_dir($dir)) {
         if (mkdir($dir)) {
+            $raiz = urldecode($raiz);
             header("Location: ../explorador.php?ruta=$raiz");
         }
     } else {
@@ -20,6 +21,7 @@ if ($tipo == 'dir') {
     $nombre = $nombre . ".txt";
     if (!is_file($raiz . "/" . $nombre)) {
         if (touch($raiz . "/" . $nombre)) {
+            $raiz = urldecode($raiz);
             header("Location: ../explorador.php?ruta=$raiz");
         } else {
             echo "<h1>Ya existe el archivo</h1>";

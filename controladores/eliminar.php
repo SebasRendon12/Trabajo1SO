@@ -20,6 +20,7 @@ $raiz = $_POST["raiz"];
 $raiz = substr($raiz, 0, -1);
 if (is_dir($directorio)) {
   if (rmdir($directorio)) {
+    $raiz = urldecode($raiz);
     header("Location: ../explorador.php?ruta=$raiz");
   } else {
     echo "<h2>La carpeta no esta vacía, no es posible borrarla</h2>";
@@ -27,6 +28,7 @@ if (is_dir($directorio)) {
   }
 } else if (is_file($directorio)) {
   if (unlink($directorio)) {
+    $raiz = urldecode($raiz);
     header("Location: ../explorador.php?ruta=$raiz");
   } else {
     echo "<h1>Ocurrio un error</h1>";

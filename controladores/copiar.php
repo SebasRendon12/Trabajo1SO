@@ -50,6 +50,7 @@ if (!empty($raiz) && !empty($nombre)) {
         fwrite($archivo, "$raiz \n $nombre");
         fclose($archivo);
     }
+    $raiz = urldecode($raiz);
     header("Location: ../explorador.php?ruta=$raiz");
     // COPIAR
 } else if (!empty($destino)) {
@@ -74,6 +75,7 @@ if (!empty($raiz) && !empty($nombre)) {
     if (is_dir($raizO . $nombreO)) {
         if (!is_dir($destino . $nombreO)) {
             copia($raizO . $nombreO . "/", $destino . $nombreO . "/");
+            $destino = urldecode($destino);
             header("Location: ../explorador.php?ruta=$destino");
         } else {
             echo "<h1>Ya existe</h1>";
@@ -82,6 +84,7 @@ if (!empty($raiz) && !empty($nombre)) {
     } else if (is_file($raizO . $nombreO)) {
         if (!is_file($destino . $nombreO)) {
             copy($raizO . $nombreO, $destino . $nombreO);
+            $destino = urldecode($destino);
             header("Location: ../explorador.php?ruta=$destino");
         } else {
             echo "<h1>Ya existe</h1>";
@@ -90,20 +93,3 @@ if (!empty($raiz) && !empty($nombre)) {
     }
     // PEGAR
 }
-
-// if (is_file($directorio)){
-//     if($directorio == $destino){
-//         if(copy($directorio,$destino.))
-//     }else{
-//         if(copy($directorio,$destino)){
-//             header("Location: ../explorador.php?ruta=$raiz");
-//         }
-//         else{
-//             echo "<h1>No se pudo copiar</h1>";
-//             echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
-//         }
-//     }
-// }
-// elseif(!is_dir($directorio)){
-
-// }
