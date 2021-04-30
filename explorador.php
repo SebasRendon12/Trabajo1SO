@@ -1,5 +1,6 @@
 <?php
 
+include ("controladores/portapapeles.php");
 // Función para el Control de Errores
 function LogDeErrores(
   $numeroDeError,
@@ -70,11 +71,28 @@ fclose($arch);
         <div id="Cabecera">
           <?php
           echo "<h2>Directorio actual: $nomdir</h2>\n";
+          $test =  CopiarPegar::$raiz . CopiarPegar::$nombre;
+          echo "<h2>Directorio actual: $test</h2>\n";
           $dir = opendir($nomdir);
           ?>
         </div>
         <br>
-        <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+        <div class="row">
+          <?php
+          if (!empty(CopiarPegar::$raiz)) {
+          ?>
+            <form action="controladores/copiar.php" method="post">
+              <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
+              <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
+            </form>
+          <?php
+          } else {
+          ?>
+            <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+          <?php
+          }
+          ?>
+        </div>
 
         <form action="controladores/crear.php" id="formCrear" style="display: none;" method="post">
           <div class="row">
@@ -166,13 +184,17 @@ fclose($arch);
                           </button>
                         </form>
 
-                        <!--<a class="btn btn-info accion" href="#">
-                          <i class="far fa-hand-paper"></i>
-                        </a>-->
-
                         <a class="btn btn-primary accion" href="#">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
+
+                        <form action="controladores/copiar.php" method="post">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
+                          <button class="btn btn-light accion" type="submit">
+                            <i class="far fa-copy"></i>
+                          </button>
+                        </form>
 
                         <form action="controladores/eliminar.php" method="post">
                           <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
@@ -181,9 +203,6 @@ fclose($arch);
                             <i class="fas fa-trash-alt"></i>
                           </button>
                         </form>
-                        <a class="btn btn-light accion" href="#">
-                          <i class="fas fa-info-circle"></i>
-                        </a>
                       </div>
                     </div>
                     <div style="text-align: center;">
@@ -211,21 +230,25 @@ fclose($arch);
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
 
                         <form action="controladores/copiar.php" method="post">
-                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <button class="btn btn-info accion" type="submit">
                             <i class="far fa-hand-paper"></i>
                           </button>
                         </form>
 
-                        <!--<a class="btn btn-info accion" href="#">
-                          <i class="far fa-hand-paper"></i>
-                        </a> -->
-
                         <a class="btn btn-primary accion" href="#">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
-                        
+
+                        <form action="controladores/copiar.php" method="post">
+                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
+                          <button class="btn btn-light accion" type="submit">
+                            <i class="far fa-copy"></i>
+                          </button>
+                        </form>
+
                         <form action="controladores/eliminar.php" method="post">
                           <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
@@ -233,9 +256,6 @@ fclose($arch);
                             <i class="fas fa-trash-alt"></i>
                           </button>
                         </form>
-                        <a class="btn btn-light accion" href="#">
-                          <i class="fas fa-info-circle"></i>
-                        </a>
                       </div>
                     </div>
                     <div style="text-align: center;">
