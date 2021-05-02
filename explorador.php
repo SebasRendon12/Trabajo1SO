@@ -77,10 +77,16 @@ fclose($arch);
           <?php
           if (true) {
           ?>
-            <form action="controladores/copiar.php" method="post">
+            <form action="controladores/pegar.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
               <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
             </form>
+
+            <form action="controladores/pegarMover.php" method="post">
+              <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
+              <button style="margin-left: 10px;" class="btn btn-primary"   id="btnMover">Mover Aqui</button>
+            </form>
+            
             <button style="margin-left: 10px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
           <?php
           } else {
@@ -173,17 +179,26 @@ fclose($arch);
                       </div>
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
 
-                        <form action="controladores/copiar.php" method="post">
-                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
+                        <form action="controladores/mover.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-info accion" type="submit">
                             <i class="far fa-hand-paper"></i>
                           </button>
                         </form>
 
-                        <a class="btn btn-primary accion" href="#">
+
+                        <form action="controladores/editar.php" method="post">
+                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
+                          <button class="btn btn-info accion" type="submit" href="controladores/editar.php">
+                            <i class="fas fa-pencil-alt"></i>
+                          </button>
+                        </form>
+
+                        <!--<a class="btn btn-primary accion" href="controladores/editar.php">
                           <i class="fas fa-pencil-alt"></i>
-                        </a>
+                        </a> -->
 
                         <form action="controladores/copiar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
@@ -226,19 +241,19 @@ fclose($arch);
                       </div>
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
 
-                        <form action="controladores/copiar.php" method="post">
+                        <form action="controladores/mover.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
+                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-info accion" type="submit">
                             <i class="far fa-hand-paper"></i>
                           </button>
                         </form>
 
-                        <a class="btn btn-primary accion" href="#">
+                        <a class="btn btn-primary accion" href="controladores/editar.php">
                           <i class="fas fa-pencil-alt"></i>
                         </a>
 
                         <form action="controladores/copiar.php" method="post">
-                          <input name="directorio" type="text" style="display: none;" value="<?= $nomdir . $file ?>">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-light accion" type="submit">

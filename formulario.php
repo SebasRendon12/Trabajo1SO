@@ -19,6 +19,7 @@
       <div class="row" style="display: flex; justify-content:center;">
         <div class="col-6">
           <br><br><br><br>
+
           <form style="width: 500px;" class="form-group" action="explorador.php" method="POST">
             <div class="form-group" style="width: 500px;">
               <label style="color: white;" for="ruta">Directorio raíz: </label>
@@ -30,6 +31,7 @@
               </div>
             </div>
           </form>
+          
         </div>
       </div>
     </div>

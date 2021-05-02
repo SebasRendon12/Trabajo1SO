@@ -9,6 +9,9 @@ $_SESSION['raiz']=$raiz;
 $_SESSION['nombre']=$nombre;
 $_SESSION['directorio']=$raiz.$nombre;
 
+
+
 header("Location: ../explorador.php?ruta=$raiz");
+
 
 ?>
