@@ -1,78 +1,0 @@
-Error: [2] rmdir(C:/Users/RENDONARTEAGA/Desktop/carpeta/carpeta): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 22  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/hola): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 22  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe/hola): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 22  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe/hola): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 22  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/hola): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 62  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepevacia): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 62  
-Error: [8] Undefined variable: vcarga C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 73  
-Error: [2] closedir() expects parameter 1 to be resource, null given C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 73  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 62  
-Error: [8] Undefined variable: vcarga C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 73  
-Error: [2] closedir() expects parameter 1 to be resource, null given C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 73  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 62  
-Error: [8] Undefined variable: vcarga C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 73  
-Error: [2] closedir() expects parameter 1 to be resource, null given C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 73  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 62  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 23  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 63  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 49  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 49  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 51  
-Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepehola.txt): No such file or directory C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 28  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 41  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe2/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 42  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 42  
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe/pepe2): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 42  
-
