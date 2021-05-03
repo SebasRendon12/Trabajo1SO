@@ -1,0 +1,2 @@
+Error: [8] Undefined variable: perms C:\wamp64\www\Trabajo1SO\controladores\permisos.php 49  
+

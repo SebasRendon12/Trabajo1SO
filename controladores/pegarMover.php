@@ -67,6 +67,9 @@ if($raiz!="" || $nombre!="" || $directorio!=""){
                 $_SESSION['directorio']="";
             } else {
                 borrarAdentro($directorio);
+                $_SESSION['raiz']="";
+                $_SESSION['nombre']="";
+                $_SESSION['directorio']="";
                 header("Location: ../explorador.php?ruta=$destino");
             }
             header("Location: ../explorador.php?ruta=$destino");
