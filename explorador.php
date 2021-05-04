@@ -118,56 +118,55 @@ session_start();
 
         <br>
         <div class="row">
+          <div class="col-3" style="margin-top: 20px;">
+            <div style="min-height: 264px; padding: 5px;">
+              <!-- Return -->
+              <?php
+              $dirAux = explode("/", $nomdir);
+              $dirPadre = "";
+
+              // Verifica si ya llegó al raiz
+              if (count($dirAux) == 1)
+                $dirPadre = "C:/";
+              else
+                // Ciclo para crear el directorio padre
+                for ($contador = 0; $contador < count($dirAux) - 2; $contador++)
+                  if ($contador < count($dirAux) - 3)
+                    $dirPadre .= $dirAux[$contador] . "/";
+                  else
+                    $dirPadre .= $dirAux[$contador];
+              ?>
+              <div class="sec">
+                <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
+                  <?php
+                  echo '<a href="?ruta=' . urlencode($dirPadre) . '" >';
+                  ?>
+                  <img src="./assets/back.png" alt="Atras">
+                  <?php
+                  echo '</a>';
+                  ?>
+                </div>
+              </div>
+              <div style="text-align: center;">
+                <h3>Atrás</h3>
+              </div>
+              <!-- Return -->
+            </div>
+          </div>
           <?php
           $i = 0;
           while (($file = readdir($dir)) != FALSE) {
             $i++;
           ?>
             <?php
-            if ($file != ".") {
+            if ($file != "." && $file != "..") {
             ?>
               <div class="col-3" style="margin-top: 20px;">
                 <div style="min-height: 264px; padding: 5px;" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
 
+                  <!-- Directorio -->
                   <?php
-                  if ($file == "..") {
-                  ?>
-
-                    <!-- Return -->
-                    <?php
-                    $dirAux = explode("/", $nomdir);
-                    $dirPadre = "";
-
-                    // Verifica si ya llegó al raiz
-                    if (count($dirAux) == 1)
-                      $dirPadre = "C:/";
-                    else
-                      // Ciclo para crear el directorio padre
-                      for ($contador = 0; $contador < count($dirAux) - 2; $contador++)
-                        if ($contador < count($dirAux) - 3)
-                          $dirPadre .= $dirAux[$contador] . "/";
-                        else
-                          $dirPadre .= $dirAux[$contador];
-                    ?>
-                    <div class="sec">
-                      <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
-                        <?php
-                        echo '<a href="?ruta=' . urlencode($dirPadre) . '" >';
-                        ?>
-                        <img src="./assets/back.png" alt="Atras">
-                        <?php
-                        echo '</a>';
-                        ?>
-                      </div>
-                    </div>
-                    <div style="text-align: center;">
-                      <h3>Atrás</h3>
-                    </div>
-                    <!-- Return -->
-
-                    <!-- Directorio -->
-                  <?php
-                  } else if (is_dir($nomdir . $file)) {
+                  if (is_dir($nomdir . $file)) {
                   ?>
                     <div class="sec">
                       <div style="padding: 0px; justify-content: center; display: flex;" class="col-9">
