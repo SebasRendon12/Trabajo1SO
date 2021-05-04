@@ -33,10 +33,10 @@ fclose($arch);
     <div class="img-lobby sec">
         <div class="navigation">
             <div class="row" style="display: flex; justify-content:center;">
-                <div class="col-6">
-                    <br><br><br><br>
+                <div class="col-10">
+                    <br>
 
-                    <h1>Permisos</h1>
+                    <h1>PERMISOS</h1>
                     <br><br>
                     <?php
                     $raiz = $_POST["raiz"];
@@ -46,67 +46,50 @@ fclose($arch);
                     $permisos = substr(sprintf('%o', fileperms($directorio)), -4);
 
                     echo "<h1>$permisos</h1>";
-
-                    //$permisos= fileperms($directorio);
-
-                    switch ($perms & 0xF000) {
-                        case 0xC000: // Socket
-                            $info = 's';
-                            break;
-                        case 0xA000: // Enlace simbólico
-                            $info = 'l';
-                            break;
-                        case 0x8000: // Normal
-                            $info = 'r';
-                            break;
-                        case 0x6000: // Bloque especial
-                            $info = 'b';
-                            break;
-                        case 0x4000: // Directorio
-                            $info = 'd';
-                            break;
-                        case 0x2000: // Carácter especial
-                            $info = 'c';
-                            break;
-                        case 0x1000: // Tubería FIFO pipe
-                            $info = 'p';
-                            break;
-                        default: // Desconocido
-                            $info = 'u';
-                    }
-
-                    // Propietario
-                    $info .= (($permisos & 0x0100) ? 'r' : '-');
-                    $info .= (($permisos & 0x0080) ? 'w' : '-');
-                    $info .= (($permisos & 0x0040) ?
-                        (($permisos & 0x0800) ? 's' : 'x') : (($permisos & 0x0800) ? 'S' : '-'));
-
-                    // Grupo
-                    $info .= (($permisos & 0x0020) ? 'r' : '-');
-                    $info .= (($permisos & 0x0010) ? 'w' : '-');
-                    $info .= (($permisos & 0x0008) ?
-                        (($permisos & 0x0400) ? 's' : 'x') : (($permisos & 0x0400) ? 'S' : '-'));
-
-                    // Mundo
-                    $info .= (($permisos & 0x0004) ? 'r' : '-');
-                    $info .= (($permisos & 0x0002) ? 'w' : '-');
-                    $info .= (($permisos & 0x0001) ?
-                        (($permisos & 0x0200) ? 't' : 'x') : (($permisos & 0x0200) ? 'T' : '-'));
-
-                    // echo "<h1>$permisos</h1>";
                     ?>
                     <br><br>
-                    <?php
-                    echo "<h2>Siendo:</h2>";
-                    echo "<h2>el primero caracter: tipo de archivo</h2>";
-                    echo "<h2>el primer grupo de 3: permisos de propetario </h2>";
-                    echo "<h2>el segundo grupo de 2: permisos de grupo </h2>";
-                    echo "<h2>el tercero grupo de 3: permisos del resto usuario </h2>";
-                    ?>
-                    <div class="row">
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <h2>Nomenclatura:</h2>
+                    </div>
+                    <div class="row" style="display: flex;">
                         <div class="col-6">
                             <div class="row">
-                            
+                                <h3>El 7 – permisos totales</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 6 – lectura y escritura</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 5 – lectura y ejecución</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 4 – lectura</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 3 – escritura y ejecución</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 2 – escritura</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 1 – ejecución</h3>
+                            </div>
+                            <div class="row">
+                                <h3>El 0 – sin permisos</h3>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <h3>el primero caracter: tipo de archivo</h3>
+                            </div><br>
+                            <div class="row">
+                                <h3>el segundo caracter: permisos de propetario</h3>
+                            </div><br>
+                            <div class="row">
+                                <h3>el tercer caracter: permisos de grupo</h3>
+                            </div><br>
+                            <div class="row">
+                                <h3>el cuarto caracter: permisos del resto usuario</h3>
                             </div>
                         </div>
                     </div>

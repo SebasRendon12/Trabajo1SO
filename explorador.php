@@ -77,7 +77,7 @@ session_start();
         <br>
         <div class="row">
           <?php
-          if ($_SESSION['raiz']!="" || $_SESSION['nombre']!="" || $_SESSION['directorio']!="") {
+          if ($_SESSION['raiz'] != "" || $_SESSION['nombre'] != "" || $_SESSION['directorio'] != "") {
           ?>
             <form action="controladores/pegar.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
@@ -86,9 +86,9 @@ session_start();
 
             <form action="controladores/pegarMover.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
-              <button style="margin-left: 10px;" class="btn btn-primary"   id="btnMover">Mover Aqui</button>
+              <button style="margin-left: 10px;" class="btn btn-primary" id="btnMover">Mover Aqui</button>
             </form>
-            
+
             <button style="margin-left: 10px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
           <?php
           } else {
@@ -130,7 +130,7 @@ session_start();
                 <div style="min-height: 264px; padding: 5px;" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
 
                   <?php
-                  if ($file == "..") {
+                  if ($i == 1) {
                   ?>
 
                     <!-- Return -->
@@ -188,7 +188,7 @@ session_start();
                             <i class="far fa-hand-paper"></i>
                           </button>
                         </form>
-                        
+
                         <form action="controladores/editar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
