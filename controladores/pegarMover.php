@@ -49,56 +49,86 @@ function copia($dirOrigen, $dirDestino)
 
 session_start();
 
-$destino = $_POST["destino"];
-$raiz = $_SESSION['raiz'];
-$nombre = $_SESSION['nombre'];
-$directorio = $_SESSION['directorio'];
-
-if($raiz!="" || $nombre!="" || $directorio!=""){
-    if (is_dir($raiz . $nombre)) {
-        if (!is_dir($destino . $nombre)) {
-            //Aqui ejecuta el copiado
-            copia($raiz . $nombre . "/", $destino . $nombre . "/");
-            $destino = urldecode($destino);
-            //Aqui hace el borrado
-            if (rmdir($raiz . $nombre)) {
-                $_SESSION['raiz']="";
-                $_SESSION['nombre']="";
-                $_SESSION['directorio']="";
-            } else {
-                borrarAdentro($directorio);
-                $_SESSION['raiz']="";
-                $_SESSION['nombre']="";
-                $_SESSION['directorio']="";
-                header("Location: ../explorador.php?ruta=$destino");
-            }
-            header("Location: ../explorador.php?ruta=$destino");
-        } else {
-            echo "<h1>Ya existe</h1>";
-            echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
-        }
-    } else if (is_file($raiz . $nombre)) {
-        if (!is_file($destino . $nombre)) {
-            copy($raiz . $nombre, $destino . $nombre);
-            $destino = urldecode($destino);
-            if (unlink($raiz . $nombre)) {
-                $_SESSION['raiz']="";
-                $_SESSION['nombre']="";
-                $_SESSION['directorio']="";
-            }
-            header("Location: ../explorador.php?ruta=$destino");
-        } else {
-            echo "<h1>Ya existe</h1>";
-            echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
-        }
-    }
-
-
-}else{
-    header("Location: ../explorador.php?ruta=$destino");
-}
-
-
-
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Estilos-->
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/b3642d5c24.js" crossorigin="anonymous"></script>
+    <title>PegarMover</title>
+</head>
+<body>
+    
+    <div class="img-lobby sec">
+        <div class="navigation">
+        <div class="row" style="display: flex; justify-content:center;">
+            <div class="col-6">
+            <br><br><br><br>
+
+            <?php
+            $destino = $_POST["destino"];
+            $raiz = $_SESSION['raiz'];
+            $nombre = $_SESSION['nombre'];
+            $directorio = $_SESSION['directorio'];
+            
+            if($raiz!="" || $nombre!="" || $directorio!=""){
+                if (is_dir($raiz . $nombre)) {
+                    if (!is_dir($destino . $nombre)) {
+                        //Aqui ejecuta el copiado
+                        copia($raiz . $nombre . "/", $destino . $nombre . "/");
+                        $destino = urldecode($destino);
+                        //Aqui hace el borrado
+                        if (rmdir($raiz . $nombre)) {
+                            $_SESSION['raiz']="";
+                            $_SESSION['nombre']="";
+                            $_SESSION['directorio']="";
+                        } else {
+                            borrarAdentro($directorio);
+                            $_SESSION['raiz']="";
+                            $_SESSION['nombre']="";
+                            $_SESSION['directorio']="";
+                            header("Location: ../explorador.php?ruta=$destino");
+                        }
+                        header("Location: ../explorador.php?ruta=$destino");
+                    } else {
+                        echo "<h1>Ya existe</h1>";
+                        echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
+                    }
+                } else if (is_file($raiz . $nombre)) {
+                    if (!is_file($destino . $nombre)) {
+                        copy($raiz . $nombre, $destino . $nombre);
+                        $destino = urldecode($destino);
+                        if (unlink($raiz . $nombre)) {
+                            $_SESSION['raiz']="";
+                            $_SESSION['nombre']="";
+                            $_SESSION['directorio']="";
+                        }
+                        header("Location: ../explorador.php?ruta=$destino");
+                    } else {
+                        echo "<h1>Ya existe</h1>";
+                        echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
+                    }
+                }
+            
+            
+            }else{
+                header("Location: ../explorador.php?ruta=$destino");
+            }
+            
+            ?>
+
+            
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
