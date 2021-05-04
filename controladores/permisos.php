@@ -42,9 +42,11 @@ function LogDeErrores(
                 $nombre = $_POST["nombre"];
                 $directorio = $raiz.$nombre;
 
-                $permisos= fileperms($directorio);
+                $permisos=substr(sprintf('%o', fileperms($directorio)), -4);
 
-                $perms;
+                echo "<h1>$permisos</h1>";
+
+                //$permisos= fileperms($directorio);
 
                 switch ($perms & 0xF000) {
                     case 0xC000: // Socket
@@ -93,7 +95,7 @@ function LogDeErrores(
                             (($permisos & 0x0200) ? 't' : 'x' ) :
                             (($permisos & 0x0200) ? 'T' : '-'));
 
-                echo "<h1>$info</h1>";
+                // echo "<h1>$permisos</h1>";
             ?>
             <br><br>
             <?php    
