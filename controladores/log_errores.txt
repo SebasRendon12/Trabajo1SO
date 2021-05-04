@@ -1,0 +1,8 @@
+Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/tete.txt): Permission denied C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 76  
+Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/tete.txt): Permission denied C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 79  
+Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 65  
+Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/0755): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 65  
+Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/tete.txt): Permission denied C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 79  
+Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/tete.txt): Permission denied C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 79  
+Error: [2] unlink(C:/Users/Ana Londono/Documents/PRIEBA/tete.txt): Permission denied C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 79  
+
