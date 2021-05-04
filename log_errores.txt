@@ -1,4 +1,0 @@
-Error: [8] Undefined index: raiz C:\wamp64\www\Trabajo1SO\explorador.php 80  
-Error: [8] Undefined index: nombre C:\wamp64\www\Trabajo1SO\explorador.php 80  
-Error: [8] Undefined index: directorio C:\wamp64\www\Trabajo1SO\explorador.php 80  
-

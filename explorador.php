@@ -14,8 +14,6 @@ $arch = fopen("log_errores.txt", "w+");
 fwrite($arch, "");
 fclose($arch);
 
-session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +75,7 @@ session_start();
         <br>
         <div class="row">
           <?php
-          if ($_SESSION['raiz'] != "" || $_SESSION['nombre'] != "" || $_SESSION['directorio'] != "") {
+          if (true) {
           ?>
             <form action="controladores/pegar.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
@@ -86,9 +84,9 @@ session_start();
 
             <form action="controladores/pegarMover.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
-              <button style="margin-left: 10px;" class="btn btn-primary" id="btnMover">Mover Aqui</button>
+              <button style="margin-left: 10px;" class="btn btn-primary"   id="btnMover">Mover Aqui</button>
             </form>
-
+            
             <button style="margin-left: 10px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
           <?php
           } else {
@@ -130,7 +128,7 @@ session_start();
                 <div style="min-height: 264px; padding: 5px;" onmouseover=<?= "mostrar($i)" ?> onmouseout=<?= "ocultar($i)" ?>>
 
                   <?php
-                  if ($i == 1) {
+                  if ($file == "..") {
                   ?>
 
                     <!-- Return -->
@@ -181,7 +179,7 @@ session_start();
                       </div>
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
 
-                        <form action="controladores/copiarmover.php" method="post">
+                        <form action="controladores/mover.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-info accion" type="submit">
@@ -189,15 +187,20 @@ session_start();
                           </button>
                         </form>
 
+
                         <form action="controladores/editar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
-                          <button class="btn btn-primary accion" type="submit">
+                          <button class="btn btn-info accion" type="submit" href="controladores/editar.php">
                             <i class="fas fa-pencil-alt"></i>
                           </button>
                         </form>
 
-                        <form action="controladores/copiarmover.php" method="post">
+                        <!--<a class="btn btn-primary accion" href="controladores/editar.php">
+                          <i class="fas fa-pencil-alt"></i>
+                        </a> -->
+
+                        <form action="controladores/copiar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-light accion" type="submit">
@@ -212,15 +215,6 @@ session_start();
                             <i class="fas fa-trash-alt"></i>
                           </button>
                         </form>
-
-                        <form action="controladores/permisos.php" method="post">
-                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
-                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
-                          <button class="btn btn-warning accion" type="submit">
-                            <i class="fas fa-eye"></i>
-                          </button>
-                        </form>
-
                       </div>
                     </div>
                     <div style="text-align: center;">
@@ -247,7 +241,7 @@ session_start();
                       </div>
                       <div class="col-2 botones" id=<?= "Acciones$i" ?> style="display: none;">
 
-                        <form action="controladores/copiarmover.php" method="post">
+                        <form action="controladores/mover.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-info accion" type="submit">
@@ -255,15 +249,11 @@ session_start();
                           </button>
                         </form>
 
-                        <form action="controladores/editar.php" method="post">
-                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
-                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
-                          <button class="btn btn-primary accion" type="submit">
-                            <i class="fas fa-pencil-alt"></i>
-                          </button>
-                        </form>
+                        <a class="btn btn-primary accion" href="controladores/editar.php">
+                          <i class="fas fa-pencil-alt"></i>
+                        </a>
 
-                        <form action="controladores/copiarmover.php" method="post">
+                        <form action="controladores/copiar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-light accion" type="submit">
@@ -278,15 +268,6 @@ session_start();
                             <i class="fas fa-trash-alt"></i>
                           </button>
                         </form>
-
-                        <form action="controladores/permisos.php" method="post">
-                          <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
-                          <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
-                          <button class="btn btn-warning accion" type="submit">
-                            <i class="fas fa-eye"></i>
-                          </button>
-                        </form>
-
                       </div>
                     </div>
                     <div style="text-align: center;">
