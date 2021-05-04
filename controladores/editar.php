@@ -19,12 +19,30 @@
             <div class="col-6">
             <br><br><br><br>
 
-             <?php
+            <?php
                 $raiz = $_POST["raiz"];
+                $nombre = $_POST["nombre"];
             ?>
 
-            <button style="margin-left: 10px;" class="btn btn-primary"   id="btn1"> Cambiar Nombre</button>
-            <button style="margin-left: 10px;" class="btn btn-primary"   id="btn2"> Cambiar Permisos de acceso</button>
+            <h1>Editar</h1>
+            <br><br>
+
+            <form action="edinombre.php" method="post">
+                <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
+                <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
+                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cambia Nombre</button>
+            </form>
+
+            <br><br>
+
+            <form action="edipermisos.php" method="post">
+                <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
+                <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
+                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cmabiar Permisos de acceso</button>
+            </form>
+
+            <br><br>
+
             <button style="margin-left: 10px;" class="btn btn-primary"   id="btn3"> Cambiar propetario</button>
 
             <?php
