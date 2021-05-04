@@ -38,7 +38,7 @@
             <form action="edipermisos.php" method="post">
                 <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
                 <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
-                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cmabiar Permisos de acceso</button>
+                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cambiar Permisos de acceso</button>
             </form>
 
             <br><br>
