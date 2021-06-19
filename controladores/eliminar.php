@@ -72,6 +72,11 @@
                 header("Location: ../explorador.php?ruta=$raiz");
               } else {
                 borrarAdentro($directorio);
+                if($directorio==$_SESSION['directorio']){
+                  $_SESSION['raiz']="";
+                  $_SESSION['nombre']="";
+                  $_SESSION['directorio']="";
+                }
                 header("Location: ../explorador.php?ruta=$raiz");
               }
             
