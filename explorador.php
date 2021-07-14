@@ -78,28 +78,25 @@ session_start();
         <div class="row">
 
           <?php
-          if( $_SESSION['mover'] == true) {
-            ?>
+          if ($_SESSION['mover'] == true) {
+          ?>
             <form action="controladores/pegarMover.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
               <button style="margin-left: 50px;" class="btn btn-primary" id="btnMover">Mover Aqui</button>
             </form>
 
-              <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
-            <?php
-          }
-          
-          elseif( $_SESSION['pegar'] == true) {
-            ?>
-              <form action="controladores/pegar.php" method="post">
-                <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
-                <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
-              </form>
+            <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+          <?php
+          } elseif ($_SESSION['pegar'] == true) {
+          ?>
+            <form action="controladores/pegar.php" method="post">
+              <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
+              <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
+            </form>
 
-              <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
-            <?php
-          }
-          else {
+            <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+          <?php
+          } else {
           ?>
             <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
           <?php
@@ -121,6 +118,7 @@ session_start();
             </div>
             <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
             <button class="btn btn-primary" type="submit">Crear</button>
+            <button class="btn btn-danger" type="button" onclick=<?= "cerrarCrear()" ?>>Cancelar</button>
           </div>
         </form>
 

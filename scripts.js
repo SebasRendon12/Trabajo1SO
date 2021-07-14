@@ -14,3 +14,8 @@ function crear() {
   document.getElementById('btnCrear').style.display = 'none';
   document.getElementById('formCrear').style.display = 'block';
 }
+
+function cerrarCrear() {
+  document.getElementById('btnCrear').style.display = 'block';
+  document.getElementById('formCrear').style.display = 'none';
+}
