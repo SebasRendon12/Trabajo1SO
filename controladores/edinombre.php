@@ -24,7 +24,7 @@
             ?>
 
             <h1>Ingrese el nuevo nombre</h1>
-            <form action="edinombre2" method="post">
+            <form action="edinombre2.php" method="post">
                 <input style="width: 100%;" type="text" name="nombre2">
                 <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
                 <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
