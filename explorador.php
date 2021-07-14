@@ -76,22 +76,30 @@ session_start();
         </div>
         <br>
         <div class="row">
-          <?php
-          if ($_SESSION['raiz'] != "" || $_SESSION['nombre'] != "" || $_SESSION['directorio'] != "") {
-          ?>
-            <form action="controladores/pegar.php" method="post">
-              <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
-              <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
-            </form>
 
+          <?php
+          if( $_SESSION['mover'] == true) {
+            ?>
             <form action="controladores/pegarMover.php" method="post">
               <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
-              <button style="margin-left: 10px;" class="btn btn-primary" id="btnMover">Mover Aqui</button>
+              <button style="margin-left: 50px;" class="btn btn-primary" id="btnMover">Mover Aqui</button>
             </form>
 
-            <button style="margin-left: 10px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
-          <?php
-          } else {
+              <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+            <?php
+          }
+          
+          elseif( $_SESSION['pegar'] == true) {
+            ?>
+              <form action="controladores/pegar.php" method="post">
+                <input name="destino" type="text" style="display: none;" value="<?= $nomdir ?>">
+                <button style="margin-left: 50px;" class="btn btn-primary" id="btnPegar">Pegar</button>
+              </form>
+
+              <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
+            <?php
+          }
+          else {
           ?>
             <button style="margin-left: 50px;" class="btn btn-primary" onclick=<?= "crear()" ?> id="btnCrear">Crear</button>
           <?php
@@ -196,7 +204,7 @@ session_start();
                           </button>
                         </form>
 
-                        <form action="controladores/copiarmover.php" method="post">
+                        <form action="controladores/copiarPegar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-light accion" type="submit">
@@ -262,7 +270,7 @@ session_start();
                           </button>
                         </form>
 
-                        <form action="controladores/copiarmover.php" method="post">
+                        <form action="controladores/copiarPegar.php" method="post">
                           <input name="raiz" type="text" style="display: none;" value="<?= $nomdir ?>">
                           <input name="nombre" type="text" style="display: none;" value="<?= $file ?>">
                           <button class="btn btn-light accion" type="submit">

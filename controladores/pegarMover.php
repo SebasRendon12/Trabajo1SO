@@ -90,11 +90,13 @@ session_start();
                             $_SESSION['raiz']="";
                             $_SESSION['nombre']="";
                             $_SESSION['directorio']="";
+                            $_SESSION['mover']=false;
                         } else {
                             borrarAdentro($directorio);
                             $_SESSION['raiz']="";
                             $_SESSION['nombre']="";
                             $_SESSION['directorio']="";
+                            $_SESSION['mover']=false;
                             header("Location: ../explorador.php?ruta=$destino");
                         }
                         header("Location: ../explorador.php?ruta=$destino");
@@ -110,6 +112,7 @@ session_start();
                             $_SESSION['raiz']="";
                             $_SESSION['nombre']="";
                             $_SESSION['directorio']="";
+                            $_SESSION['mover']=false;
                         }
                         header("Location: ../explorador.php?ruta=$destino");
                     } else {

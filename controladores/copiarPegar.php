@@ -8,10 +8,10 @@ $nombre = $_POST["nombre"];
 $_SESSION['raiz']=$raiz;
 $_SESSION['nombre']=$nombre;
 $_SESSION['directorio']=$raiz.$nombre;
-$_SESSION['mover']=true;
+$_SESSION['pegar']=true;
 
-if($_SESSION['pegar']=true){
-    $_SESSION['pegar']=false;
+if($_SESSION['mover']=true){
+    $_SESSION['mover']=false;
 }
 
 

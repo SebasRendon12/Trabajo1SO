@@ -67,6 +67,7 @@ session_start();
                         if (!is_dir($destino . $nombre)) {
                             copia($raiz . $nombre . "/", $destino . $nombre . "/");
                             $destino = urldecode($destino);
+                            $_SESSION['pegar']=false;
                             header("Location: ../explorador.php?ruta=$destino");
                         } else {
                             echo "<h1>Ya existe</h1>";
@@ -76,6 +77,7 @@ session_start();
                         if (!is_file($destino . $nombre)) {
                             copy($raiz . $nombre, $destino . $nombre);
                             $destino = urldecode($destino);
+                            $_SESSION['pegar']=false;
                             header("Location: ../explorador.php?ruta=$destino");
                         } else {
                             echo "<h1>Ya existe</h1>";

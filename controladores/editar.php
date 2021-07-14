@@ -43,7 +43,12 @@
 
             <br><br>
 
-            <button style="margin-left: 10px;" class="btn btn-primary"   id="btn3"> Cambiar propetario</button>
+            <form action="cambiarP1.php" method="post">
+                <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
+                <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
+                <button style="margin-left: 10px;" class="btn btn-primary"   type="submit"> Cambiar propetario</button>
+            </form>
+            
 
             <?php
                 echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
