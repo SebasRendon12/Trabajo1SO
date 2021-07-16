@@ -1,0 +1,3 @@
+Error: [8] Undefined index: mover /var/www/html/Trabajo1SO/explorador.php 81  
+Error: [8] Undefined index: pegar /var/www/html/Trabajo1SO/explorador.php 90  
+

@@ -40,7 +40,14 @@
                     echo "<h1>Ya existe un archivo con este nombre -> ( $nuevoNombre)</h1>";
                     echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
                 }
-*/
+*/              $contrasena = 'papayas1029';  
+                $raiz = $_POST["raiz"];
+                $nombre = $_POST["nombre"];
+                $formato = "";
+                $nuevoUsuario = $_POST["nombre2"];
+                $nuevoGrupo = $nuevoUsuario;
+                exec("echo ".$contrasena." | sudo -S chown ".$nuevoUsuario.":".$nuevoGrupo." ".$raiz.$nombre);
+                header("Location: ../explorador.php?ruta=$raiz");      
             ?>  
             
             </div>

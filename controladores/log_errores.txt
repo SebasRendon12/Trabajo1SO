@@ -1,2 +1,3 @@
-Error: [2] rmdir(C:/Users/Ana Londono/Documents/PRIEBA/pepe/ejemplo2): Directory not empty C:\wamp64\www\Trabajo1SO\controladores\eliminar.php 65  
+Error: [2] rmdir(/var/www/html/Trabajo1SO/pruebas/no): Directory not empty /var/www/html/Trabajo1SO/controladores/eliminar.php 65  
+Error: [8] Undefined index: directorio /var/www/html/Trabajo1SO/controladores/eliminar.php 75  
 
