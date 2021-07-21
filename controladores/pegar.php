@@ -35,6 +35,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,55 +51,60 @@ session_start();
 <body>
     <div class="img-lobby sec">
         <div class="navigation">
-        <div class="row" style="display: flex; justify-content:center;">
-            <div class="col-6">
-            <br><br><br><br>
+            <div class="row" style="display: flex; justify-content:center;">
+                <div class="col-6">
+                    <br><br><br><br>
 
-            <?php
+                    <?php
 
-                $destino = $_POST["destino"];
-                $raiz = $_SESSION['raiz'];
-                $nombre = $_SESSION['nombre'];
-                $directorio = $_SESSION['directorio'];
+                    $destino = $_POST["destino"];
+                    $raiz = $_SESSION['raiz'];
+                    $nombre = $_SESSION['nombre'];
+                    $directorio = $_SESSION['directorio'];
 
-                if($raiz!="" || $nombre!="" || $directorio!=""){
-                
-                    if (is_dir($raiz . $nombre)) {
-                        if (!is_dir($destino . $nombre)) {
-                            copia($raiz . $nombre . "/", $destino . $nombre . "/");
-                            $destino = urldecode($destino);
-                            $_SESSION['pegar']=false;
-                            header("Location: ../explorador.php?ruta=$destino");
+                    if ($raiz != "" || $nombre != "" || $directorio != "") {
+                        if ($raiz . $nombre . "/" <> $destino) {
+                            if (is_dir($raiz . $nombre)) {
+                                if (!is_dir($destino . $nombre)) {
+                                    copia($raiz . $nombre . "/", $destino . $nombre . "/");
+                                    $destino = urldecode($destino);
+                                    $_SESSION['pegar'] = false;
+                                    header("Location: ../explorador.php?ruta=$destino");
+                                } else {
+                                    echo "<h1>Ya existe</h1>";
+                                    echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
+                                }
+                            } else if (is_file($raiz . $nombre)) {
+                                if (!is_file($destino . $nombre)) {
+                                    copy($raiz . $nombre, $destino . $nombre);
+                                    $destino = urldecode($destino);
+                                    $_SESSION['pegar'] = false;
+                                    header("Location: ../explorador.php?ruta=$destino");
+                                } else {
+                                    echo "<h1>Ya existe</h1>";
+                                    echo "<br>";
+                                    echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
+                                }
+                            }
                         } else {
-                            echo "<h1>Ya existe</h1>";
+                            echo "<h3>No se puede pegar una carpeta dentro de si misma</h3>";
+                            echo "<br>";
                             echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
                         }
-                    } else if (is_file($raiz . $nombre)) {
-                        if (!is_file($destino . $nombre)) {
-                            copy($raiz . $nombre, $destino . $nombre);
-                            $destino = urldecode($destino);
-                            $_SESSION['pegar']=false;
-                            header("Location: ../explorador.php?ruta=$destino");
-                        } else {
-                            echo "<h1>Ya existe</h1>";
-                            echo "<a href='../explorador.php?ruta=$destino'><h1>Volver</h1></a>";
-                        }
+                    } else {
+                        $_SESSION['pegar'] = false;
+                        header("Location: ../explorador.php?ruta=$destino");
                     }
 
 
-                }else{
-                    $_SESSION['pegar'] = false;
-                    header("Location: ../explorador.php?ruta=$destino");
-                }
 
 
+                    ?>
 
-
-                ?>
-            
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </body>
+
 </html>
