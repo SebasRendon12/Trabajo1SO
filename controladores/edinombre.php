@@ -16,13 +16,17 @@
         <div class="navigation">
         <div class="row" style="display: flex; justify-content:center;">
             <div class="col-6">
-            <br><br><br><br>
-
+            
             <?php
                 $raiz = $_POST["raiz"];
                 $nombre = $_POST["nombre"];
             ?>
-
+            <br><br>
+            <h1>NOMBRE ACTUAL:</h1>
+            <?php
+                echo"<h2>$nombre</h2>";
+            ?>
+            <br><br>
             <h1>Ingrese el nuevo nombre</h1>
             <form action="edinombre2.php" method="post">
                 <input style="width: 100%;" type="text" name="nombre2">

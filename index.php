@@ -27,7 +27,7 @@
         <tr>
           <td style="text-align: center;">1007028311</td>
           <td style="text-align: left;">Edwar Jose Londono Correa</td>
-          <td style="text-align: center;">21</td>
+          <td style="text-align: center;">22</td>
           <td style="text-align: center;">A+</td>
         </tr>
         <tr>

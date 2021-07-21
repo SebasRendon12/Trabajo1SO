@@ -87,6 +87,7 @@ session_start();
 
 
                 }else{
+                    $_SESSION['pegar'] = false;
                     header("Location: ../explorador.php?ruta=$destino");
                 }
 

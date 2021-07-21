@@ -30,7 +30,7 @@
             <form action="edinombre.php" method="post">
                 <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
                 <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
-                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cambia Nombre</button>
+                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cambiar Nombre</button>
             </form>
 
             <br><br>
@@ -38,7 +38,7 @@
             <form action="edipermisos.php" method="post">
                 <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
                 <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
-                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cambiar Permisos de acceso</button>
+                <button style="margin-left: 10px;" class="btn btn-primary" type="submit">Cambiar Permisos de Acceso</button>
             </form>
 
             <br><br>
@@ -46,12 +46,13 @@
             <form action="cambiarP1.php" method="post">
                 <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
                 <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
-                <button style="margin-left: 10px;" class="btn btn-primary"   type="submit"> Cambiar propetario</button>
+                <button style="margin-left: 10px;" class="btn btn-primary"   type="submit"> Cambiar Propietario</button>
             </form>
             
-
+            <br><br>
+            
             <?php
-                echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
+                echo "<a href='../explorador.php?ruta=$raiz'><h2>Volver</h2></a>";
             ?>
             
             </div>

@@ -18,20 +18,33 @@
             <div class="col-6">
             <br><br><br><br>
 
+            <h1>PROPETARIO  ACTUAL</h1>
+            <br>
             <?php
                 $raiz = $_POST["raiz"];
                 $nombre = $_POST["nombre"];
+                $directorio = $raiz.$nombre;
+
+                $propetario= fileowner($directorio);
+                echo"<h2>$propetario</h2>";
+
+                
             ?>
 
-            <h1>Ingrese el nuevo propetario</h1>
+            <br>
+            
             <form action="cambiarP2.php" method="post">
-                <input style="width: 100%;" type="text" name="nombre2">
+                <h3>Ingrese el nuevo propetario</h3>
+                <input style="width: 100%;" type="text" name="propetario">
+                <br><br>
+                <h3>Ingrese la contraseña de su usuario</h3>
+                <input style="width: 100%;" type="password" name="contra">
                 <input name="raiz" type="text" style="display: none;" value="<?= $raiz ?>">
                 <input name="nombre" type="text" style="display: none;" value="<?= $nombre ?>">
                 <br><br>
                 <button  class="btn btn-primary" type="submit">Cambiar</button>
             </form>
-            <br><br><br><br>
+            <br><br>
             
             <?php
                 echo "<a href='../explorador.php?ruta=$raiz'><h2>Volver</h2></a>";

@@ -67,6 +67,8 @@
                   $_SESSION['raiz']="";
                   $_SESSION['nombre']="";
                   $_SESSION['directorio']="";
+                  $_SESSION['mover']=false;
+                  $_SESSION['pegar'] = false;
                 }
                 $raiz = urldecode($raiz);
                 header("Location: ../explorador.php?ruta=$raiz");
@@ -76,6 +78,8 @@
                   $_SESSION['raiz']="";
                   $_SESSION['nombre']="";
                   $_SESSION['directorio']="";
+                  $_SESSION['mover']=false;
+                  $_SESSION['pegar'] = false;
                 }
                 header("Location: ../explorador.php?ruta=$raiz");
               }
@@ -86,6 +90,8 @@
                   $_SESSION['raiz']="";
                   $_SESSION['nombre']="";
                   $_SESSION['directorio']="";
+                  $_SESSION['mover']=false;
+                  $_SESSION['pegar'] = false;
                 }
                 $raiz = urldecode($raiz);
                 header("Location: ../explorador.php?ruta=$raiz");

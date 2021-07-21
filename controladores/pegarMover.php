@@ -123,6 +123,7 @@ session_start();
             
             
             }else{
+                $_SESSION['mover'] = false;
                 header("Location: ../explorador.php?ruta=$destino");
             }
             

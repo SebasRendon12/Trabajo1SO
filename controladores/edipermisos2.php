@@ -1,3 +1,25 @@
+<?php
+    function cambiarAdentro($dirPath,$permisos,$contrasena){
+
+    if (! is_dir($dirPath)) {
+    throw new InvalidArgumentException("$dirPath must be a directory");
+    }
+    if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+        $dirPath .= '/';
+    }
+    $files = glob($dirPath . '*', GLOB_MARK);
+    foreach ($files as $file) {
+        if (is_dir($file)) {
+            cambiarAdentro($file);
+        } else {
+            exec("echo ".$contrasena." | sudo -S chmod ".$permisos." ".$dirPath);
+        }
+    }
+    exec("echo ".$contrasena." | sudo -S chmod ".$permisos." ".$dirPath);
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,23 +41,29 @@
             <br><br><br><br>
 
             <?php
-                /*
+                
                 $raiz = $_POST["raiz"];
                 $nombre = $_POST["nombre"];
-                $nuevoPermisos = $_POST["nombre2"];
-                if(chmod($raiz.$nombre,$nuevoPermisos)){
-                    header("Location: ../explorador.php?ruta=$raiz");
-                }else{
-                    echo "<h1>Error</h1>";
-                    echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
-                }  
-                */
-                $contrasena = 'papayas1029';     
-                $raiz = $_POST["raiz"];
-                $nombre = $_POST["nombre"];
-                $nuevoPermisos = $_POST["nombre2"];
-                exec("echo ".$contrasena." | sudo -S chmod ".$nuevoPermisos." ".$raiz.$nombre); 
-                header("Location: ../explorador.php?ruta=$raiz");       
+                $PermisosPropetarios = $_POST["pp"];
+                $PermisosGrupo = $_POST["pg"];
+                $PermisosUsuarios = $_POST["pu"]; 
+                $contrasena = $_POST["contra"];
+                if(strlen($contrasena)==0){
+                    echo "<h1>No introdujo la contraseña</h1>";
+                    echo "<br><br>";
+                    echo "<a href='../explorador.php?ruta=$raiz'><h2>Volver</h2></a>";
+                }
+                else{
+                    if(is_dir($raiz.$nombre)){
+                        $nuevoPermisos = $PermisosPropetarios.$PermisosGrupo.$PermisosUsuarios;
+                        cambiarAdentro($raiz.$nombre,$nuevoPermisos,$contrasena);
+                        header("Location: ../explorador.php?ruta=$raiz");
+                    }else{
+                        $nuevoPermisos = $PermisosPropetarios.$PermisosGrupo.$PermisosUsuarios;
+                        exec("echo ".$contrasena." | sudo -S chmod ".$nuevoPermisos." ".$raiz.$nombre); 
+                        header("Location: ../explorador.php?ruta=$raiz");
+                    }
+                }       
             ?>
             
             </div>

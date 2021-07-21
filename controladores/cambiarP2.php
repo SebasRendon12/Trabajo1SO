@@ -40,14 +40,24 @@
                     echo "<h1>Ya existe un archivo con este nombre -> ( $nuevoNombre)</h1>";
                     echo "<a href='../explorador.php?ruta=$raiz'><h1>Volver</h1></a>";
                 }
-*/              $contrasena = 'papayas1029';  
+*/                
                 $raiz = $_POST["raiz"];
                 $nombre = $_POST["nombre"];
-                $formato = "";
-                $nuevoUsuario = $_POST["nombre2"];
+                $nuevoUsuario = $_POST["propetario"];
                 $nuevoGrupo = $nuevoUsuario;
-                exec("echo ".$contrasena." | sudo -S chown ".$nuevoUsuario.":".$nuevoGrupo." ".$raiz.$nombre);
-                header("Location: ../explorador.php?ruta=$raiz");      
+                $contrasena = $_POST["contra"];
+
+                if(strlen($contrasena)==0){
+                    echo "<h1>No introdujo la contraseña</h1>";
+                    echo "<br><br>";
+                    echo "<a href='../explorador.php?ruta=$raiz'><h2>Volver</h2></a>";
+                }
+                else{
+                    exec("echo ".$contrasena." | sudo -S chown ".$nuevoUsuario.":".$nuevoGrupo." ".$raiz.$nombre);
+                    header("Location: ../explorador.php?ruta=$raiz");
+                } 
+
+                      
             ?>  
             
             </div>
