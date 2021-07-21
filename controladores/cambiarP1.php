@@ -25,7 +25,7 @@
                 $nombre = $_POST["nombre"];
                 $directorio = $raiz.$nombre;
 
-                $propetario= fileowner($directorio);
+                $propetario= posix_getpwuid(fileowner($directorio));
                 echo"<h2>$propetario</h2>";
 
                 
