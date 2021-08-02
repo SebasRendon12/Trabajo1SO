@@ -92,6 +92,10 @@
 
                     echo "<br>";
                     echo "<br>";
+                    echo "<h2>PROPETARIO ACTUAL:</h2>";
+                    $propetario= posix_getpwuid(fileowner($directorio))['name'];
+                    echo"<h2>$propetario</h2>";
+                    echo "<br>";
                     echo "<h2>PERMISOS DE PROPETARIO:</h2>";
                     echo "<h2>$permisoPropetario</h2>";
                     echo "<br>";
